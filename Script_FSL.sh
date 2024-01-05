@@ -55,7 +55,7 @@ fugue -i 12-func_task-rest_func_task-rest_20230613161014_12.nii --dwell=0.000719
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 14 14`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	if test ! -e fmap_9_10 ; then
 		mkdir fmap_9_10
@@ -123,7 +123,7 @@ fugue -i 04-func_task-anagrams_run-1_func_task-anagrams_run-1_20230616153524_4.n
 #Correction de EPI avec fieldmap créée  + decompression fichier tar
 cd
 cd documents/ImpAcq
-for i in `seq -w 9 11`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	for j in `seq -w 1 5`; do
 		cd *-func_task-anagrams_run-${j}
@@ -140,7 +140,7 @@ fugue -i 05-func_task-anagrams_run-2_func_task-anagrams_run-2_20230616153524_5.n
 #même chose pour le RS
 cd
 cd documents/ImpAcq
-for i in `seq -w 14 14`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 12-func_task-rest
 	fugue -i 12-func_task-rest*14.nii --dwell=0.000719992 --loadfmap=../fmap_14_15/fmap_rads.nii.gz --unwarpdir='y-' -u corrected_epi
@@ -150,7 +150,7 @@ done
 #Decompression de tout les RS
 cd
 cd documents/ImpAcq
-for i in `seq -w 2 14`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 12-func_task-rest
 	if test ! -e corrected_epi.nii; then
@@ -162,7 +162,7 @@ done
 #binarisation pour mask
 cd
 cd documents/ImpAcq
-for i in `seq -w 3 11`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 
 	cd 03-anat_T1w
@@ -174,7 +174,7 @@ done
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 3 8`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_0${i}
 
 	cd 03-anat_T1w
@@ -186,7 +186,7 @@ done
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 1 12`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 04-func_task-anagrams_run-1
 	fslsplit 04-func_task-anagrams_run-1_func_task-anagrams_run-*4.nii
@@ -198,7 +198,7 @@ done
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 1 12`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 04-func_task-anagrams_run-1
 	cd '4D Split'
@@ -217,7 +217,7 @@ for i in range(9,12):
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 9 11`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	for j in `seq -w 1 5`; do
 		cd *-func_task-anagrams_run-${j}
@@ -232,7 +232,7 @@ done
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 12 14`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 12-func_task-rest
 	fslsplit corrected_epi.nii
@@ -247,7 +247,7 @@ done
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 2 11`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 03-anat_T1w
 	if test ! -e betbrain_mask.nii.gz; then
@@ -258,7 +258,7 @@ done
 
 cd
 cd documents/ImpAcq
-for i in `seq -w 12 14`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 12-func_task-rest
 	fslmaths corrected_epi.nii -mas ../03-anat_T1w/betbrain_mask_func1to5space_RS.nii func_betbrain
@@ -272,7 +272,7 @@ done
 #Rangement de tous les dicoms + conversion dicom to nifti
 cd
 cd Documents/ImpAcq
-for i in `seq -w 1 11`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	for j in `seq -w 1 15`; do
 		cd ${j}-*
@@ -295,7 +295,7 @@ for i in `seq -w 1 11`; do
 done
 
 cd Documents/ImpAcq
-for i in `seq -w 2 9`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 04-func_task-anagrams_run-1
 	if test ! -e "4D split corrected"; then
@@ -310,7 +310,7 @@ done
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 2 9`; do
+for i in `seq -w 1 14`; do
 	cd ImpAcq_${i}
 	cd 04-func_task-anagrams_run-1
 	if test ! -e "4D split corrected"; then
@@ -393,7 +393,7 @@ done
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 4 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}
 	mkdir APPA_correction
 	cd APPA_correction
@@ -494,7 +494,7 @@ fslmeants -i func_betbrain_copy.nii.gz -o sub-04_drn_activ.txt -m mask_resize.ni
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 3 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*/12-func_task-rest
 	cp ../../ImpAcq_02/12-func_task-rest/Design_prepro/Design_prepro.fsf .
 
@@ -533,7 +533,7 @@ python3 resample.py
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 1 12` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*/12-func_task-rest/DMN_resample
 
 	fslmaths mPFC_reshape.nii.gz -thr 60 mPFC_reshape_tr_0.6.nii.gz
@@ -565,7 +565,7 @@ fslmeants -i ../func_betbrain_mni.nii.gz -o sub-14_PCC.txt -m ../DMN_resample/PC
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 1 12` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*/12-func_task-rest/DMN_resample
 
 	fslmaths mPFC_reshape.nii.gz -thr 60 mPFC_reshape_tr_0.6.nii.gz
@@ -592,7 +592,7 @@ fslmeants -i func_betbrain_mni.nii.gz -o sub-12_PCC.txt -m DMN_resample/PCC_resh
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 4 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*/12-func_task-rest/
 	mkdir Design_first_analyses
 	cd Design_first_analyses
@@ -608,7 +608,7 @@ done
 #Première étape combinaison RS et Task : création dossier, importation fichier
 cd
 cd Documents/ImpAcq
-for i in `seq -w 1 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*
 	mkdir Task_RS_combined
 	cd Task_RS_combined
@@ -644,7 +644,7 @@ done
 #Utilisation de fsleyes pour placer func_betbrain dans MNI et merge des task_mni
 cd
 cd Documents/ImpAcq
-for i in `seq -w 2 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*
 	cd Task_RS_combined
 	cp ../*anagrams*/Analyse_FvsNF.feat/reg/example_func2standard.mat .
@@ -664,7 +664,7 @@ done
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 2 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*
 	cd Task_RS_combined
 
@@ -685,7 +685,7 @@ done
 
 cd
 cd Documents/ImpAcq
-for i in `seq -w 2 9` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_0${i}*/Task_RS_combined/vol_rs
 	fslmerge -t RS_resamp_merge RS_resamp*
 	cd ../../..
@@ -693,7 +693,7 @@ done
 #Script suppression des dossiers Task_RS
 cd
 cd Documents/ImpAcq
-for i in `seq -w 1 11` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_${i}*
 	rm -r Task_RS_combined
 
@@ -705,7 +705,7 @@ done
 #Script pour creer le merged Task +rs
 cd
 cd Documents/ImpAcq
-for i in `seq -w 2 9` ; do
+for i in `seq -w 1 14` ; do
 	cd ImpAcq_0${i}*/Task_RS_combined
 	cp vol_rs/RS_resamp_merge.nii.gz .
 	fslmerge -t merge_task_rs_mni func_merge_std.nii.gz RS_resamp_merge.nii.gz
